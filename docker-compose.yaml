@@ -1,0 +1,39 @@
+version: '3'
+services:
+  db: 
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+    ports:
+      - 3306:3306
+  api1:
+    build:
+      context: ./api1
+      dockerfile: Dockerfile
+    environment:
+      - PORT=1200
+      - adminName=Ilyas
+    ports:
+      - 1200:1200
+    depends_on:
+      - db
+  api2:
+    build:
+      context: ./api2
+      dockerfile: Dockerfile
+    environment:
+      - PORT=1300
+    ports:
+      - 1300:1300
+    depends_on:
+      - db
+  api3:
+    build:
+      context: ./api3
+      dockerfile: Dockerfile
+    environment:
+      - PORT=1400
+    ports:
+      - 1400:1400
+    depends_on:
+      - db

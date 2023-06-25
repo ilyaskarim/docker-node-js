@@ -1,0 +1,6 @@
+api1/node_modules
+api2/node_modules
+api3/node_modules
+api1/package-lock.json
+api2/package-lock.json
+api3/package-lock.json
